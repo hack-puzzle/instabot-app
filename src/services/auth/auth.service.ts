@@ -1,12 +1,14 @@
-import { Injectable, NgZone } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import {Injectable, NgZone} from '@angular/core';
+import {Storage} from '@ionic/Storage';
 
 // Import AUTH_CONFIG, Auth0Cordova, and auth0.js
-import { AUTH_CONFIG } from './auth.config';
+import {AUTH_CONFIG} from './auth.config';
 import Auth0Cordova from '@auth0/cordova';
 import * as auth0 from 'auth0-js';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class AuthService {
     Auth0 = new auth0.WebAuth(AUTH_CONFIG);
     Client = new Auth0Cordova(AUTH_CONFIG);
